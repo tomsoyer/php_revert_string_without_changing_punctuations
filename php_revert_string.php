@@ -11,18 +11,10 @@ function revertCharacters($text){
 	$return_string = $text;
 	$text = preg_replace("/(?!.[.=$'€%-])\p{P}/u", "", $text);
 
-	$strings = explode(' ',$text);
-	//$strings = preg_split("/\s+|\b(?=[!\?\.])(?!\.\s+)/", $text);
-/*
-return $strings; 
-exit; 
-*/
-	
+	$strings = explode(' ',$text);	 
 	$initial_string = '';
 	foreach($strings as $word){
-		$reversedString = revertCharactersOfString($word); 
-		//echo "|".$word."|<br>"; 
-		//echo "|".$reversedString."|<br>"; 		
+		$reversedString = revertCharactersOfString($word); 	
 		$return_string = str_replace($word, $reversedString, $return_string); 
 	}	
 	return $return_string; 
